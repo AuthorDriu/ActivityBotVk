@@ -1,0 +1,5 @@
+__pycache__
+venv
+.env
+ActivityBotVK.log
+database.sqlite3
