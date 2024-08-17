@@ -72,7 +72,7 @@ def get_timer(user_id: int):
     
     return f"Ваш статус: {'активен' if user.state == 1 else 'не активен'}\n" \
            f"Вы были активны: {datetime.datetime.utcfromtimestamp(active_time).strftime('%H:%M:%S')}\n" \
-           f"Осталось: {'00:00:00' if user.role.daily_norm - active_time <= 0 else datetime.datetime.utcfromtimestamp(user.role.daily_norm - active_time).strftime('%H:%M:%S')}"
+           f"Осталось: {datetime.datetime.utcfromtimestamp(max(0, user.role.daily_norm - active_time)).strftime('%H:%M:%S')}"
 
 
 def get_results(date: str) -> Optional[bytes]:
@@ -181,8 +181,6 @@ def main():
             if not report:
                 send_message(vk, user_id, f"Результатов за {date} нет")
                 continue
-            
-            # TODO!: Выгрузка файла на file.io и отправка ссылки пользователю
             
             url = upload_file_from_bytes(report, f"{current_date('_')}_report.xls")
             

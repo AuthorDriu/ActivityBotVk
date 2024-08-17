@@ -6,8 +6,9 @@ import requests
 def upload_file(file, filename: str = None) -> Optional[str]:
     url = "https://file.io"
     data = {
-        "maxDownloads": 1,
-        "autoDelete": True
+        "maxDownloads": 100,
+        "autoDelete": True,
+        "expires": "12h"
     }
     response = requests.post(
         url,
