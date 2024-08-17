@@ -2,8 +2,10 @@ from typing import List
 from tempfile import NamedTemporaryFile
 from datetime import datetime as dt
 from datetime import UTC
+
 import openpyxl as oxl
 from openpyxl.styles import PatternFill
+
 from schemas import Result
 
 

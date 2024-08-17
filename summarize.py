@@ -1,16 +1,17 @@
-from typing import List
 import time
 import logging
 import schedule
+from typing import List
 
 import vk_api
 
+import database as db
 from main import current_date, calculate_results_for_user
 from config import bot_config
-import database as db
 from schemas import Result
 from report import generate_xl
 from upload import upload_file_from_bytes
+
 
 logger = logging.getLogger(__name__)
 

@@ -1,24 +1,15 @@
 import logging
+import datetime
+from typing import Optional
 
 logging.basicConfig(filename="ActivityBotVK.log", level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-from typing import Optional
-
-import datetime
-import database as db
-
-import json
-
-from tempfile import NamedTemporaryFile
-
 import vk_api
-from vk_api.upload import VkUpload
 from vk_api.longpoll import VkLongPoll, VkEventType
 
-import schedule
-
-from schemas import Role, User, Activity
+import database as db
+from schemas import User, Activity
 from config import bot_config
 from report import generate_xl
 from upload import upload_file_from_bytes

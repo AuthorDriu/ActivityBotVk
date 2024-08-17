@@ -1,6 +1,6 @@
-from typing import Optional
-from tempfile import NamedTemporaryFile
 import requests
+from tempfile import NamedTemporaryFile
+from typing import Optional
 
 
 def upload_file(file, filename: str = None) -> Optional[str]:
