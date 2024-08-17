@@ -84,7 +84,7 @@ def get_user_by_vk_id(user_id: int) -> Optional[User]:
 def get_all_vk_ids():
     with sqlite3.connect(PATH_TO_DATABASE) as con:
         query_vk_ids = con.execute("""SELECT user_id FROM users""")
-        vk_ids = query_vk_ids.fetchall()
+        vk_ids = map(lambda vk_id: vk_id[0], query_vk_ids.fetchall())
         return vk_ids
 
 

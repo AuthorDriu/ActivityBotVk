@@ -20,7 +20,7 @@ print(f"Каждый день в {bot_config.results_time} будут подво
 
 # Должна вызываться самостоятельно раз в день для подведения итогов
 def summarize_results(date) -> List[Result]:   
-    vk_ids = map(lambda vk_id: vk_id[0], db.get_all_vk_ids())
+    vk_ids = db.get_all_vk_ids()
     users = list(map(db.get_user_by_vk_id, vk_ids))
     results = []
 
